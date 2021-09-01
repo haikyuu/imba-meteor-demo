@@ -1,14 +1,10 @@
-import { Mongo } from 'meteor/mongo';
- 
-export const TasksCollection = new Mongo.Collection('tasks');
-TasksCollection.allow({
-	insert: function (userId, doc) {
-		return true;
-	 },
-	 update: function (userId, doc, fieldNames, modifier) {
-		return true;
-	 },
-	 remove: function (userId, doc) {
-		return true;
-	 }
-})
+
+import {Mongo} from 'meteor/mongo'/*$path$*/;;
+
+export const TasksCollection = new Mongo.Collection('tasks');;
+
+TasksCollection.allow(
+	{insert: function() { return true; },
+	update: function() { return true; },
+	remove: function() { return true; }}
+);

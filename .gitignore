@@ -1,3 +1,4 @@
 node_modules/
-client/main.js
-server/main.js
+client/*.js
+server/*.js
+imports/*.js
