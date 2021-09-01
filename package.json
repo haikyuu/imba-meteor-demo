@@ -1,0 +1,26 @@
+{
+  "name": "minimal",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run start-*\"",
+    "start-meteor": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "build": "imbac imba_app -o client/",
+    "start-imba": "imbac -w imba_app -o client/"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.8",
+    "concurrently": "^6.2.1",
+    "imba": "^2.0.0-alpha.165",
+    "meteor-node-stubs": "^1.1.0"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}
