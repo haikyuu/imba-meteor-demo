@@ -8,7 +8,7 @@
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
     "build": "imbac imba_app -o client/",
-    "start-imba": "imbac -w imba_app -o client/",
+    "start-imba": "imbac -w imba_app/ -o client/",
     "start-imba-server": "imbac -w server/main.imba -o server/",
     "start-imba-imports": "imbac -w imports/ -o imports/"
   },
