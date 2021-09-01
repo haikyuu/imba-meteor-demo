@@ -1,6 +1,7 @@
 import { TasksCollection as Task } from '/imports/api/TasksCollection';
 import { Tracker } from 'meteor/tracker'
 import {Meteor} from 'meteor/meteor'
+import Meteorite from './meteorite'
 
 global css html
 	ff:sans
@@ -14,12 +15,11 @@ const hideCompletedFilter = { done: { $ne: true } };
 
 tag app
 	def render
-		Meteor.subscribe 'tasks'
-		Tracker.autorun do
+		const meteorite = new Meteorite("tasks")
+		meteorite.track do
 			tasks = Task.find(
 				hideCompleted ? hideCompletedFilter : {}, { sort: { createdAt: -1 } }
 			).fetch!
-			imba.commit!
 		<self>
 			<ul>
 				for task in tasks
